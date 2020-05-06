@@ -1,0 +1,280 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>Welcome to the generated API reference. All the endpoints are reachable without auth.</p>
+<!-- END_INFO -->
+<h1>api</h1>
+<!-- START_2b6e5a4b188cb183c7e59558cce36cb6 -->
+<h2>Get the currently logged in user</h2>
+<blockquote>
+<p>No example provided.</p>
+</blockquote>
+<h3>HTTP Request</h3>
+<p><code>GET api/user</code></p>
+<h3>Query Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<!-- END_2b6e5a4b188cb183c7e59558cce36cb6 -->
+<!-- START_d0be1483d167d9342fb319522d271621 -->
+<h2>List workshops</h2>
+<p>List all workshops around a specific user location.</p>
+<blockquote>
+<p>List workshops :</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://workshop-finder-api.test/api/workshops?lat=51.5265529&amp;amp;lng=9.9023838&amp;amp;radius=150000" \
+</code></pre>
+<blockquote>
+<p>Example response (200) :</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "id": 2,
+            "company_name": "cierra GmbH",
+            "lat": "51.5265529",
+            "lng": "9.9023838",
+            "note": "This is an example note to the company cierra. Write something interesting here.",
+            "address": "Bachstraße 2, 37081 Göttingen",
+            "telefon": "055189999000",
+            "email": "support@cierra.de",
+            "created_at": "2020-05-06T19:06:58.000000Z",
+            "updated_at": "2020-05-06T19:06:58.000000Z"
+        },
+        {
+            "id": 1,
+            "company_name": "cierra GmbH",
+            "lat": "51.5265529",
+            "lng": "9.9023838",
+            "note": "This is an example note to the company cierra. Write something interesting here.",
+            "address": "Bachstraße 2, 37081 Göttingen",
+            "telefon": "055189999000",
+            "email": "support@cierra.de",
+            "created_at": "2020-05-06T19:00:10.000000Z",
+            "updated_at": "2020-05-06T19:00:10.000000Z"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/workshops</code></p>
+<h3>Query Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lat</td>
+<td>REQUIRED</td>
+</tr>
+<tr>
+<td>lng</td>
+<td>REQUIRED</td>
+</tr>
+<tr>
+<td>radius</td>
+<td>In meters. Default 150000</td>
+</tr>
+</tbody>
+</table>
+<!-- END_d0be1483d167d9342fb319522d271621 -->
+<!-- START_935d4f17608b589a4380b70e7380c715 -->
+<h2>Create Workshop</h2>
+<blockquote>
+<p>Create Workshop :</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://workshop-finder-api.test/api/workshops" \
+    -H "Content-Type: application/x-www-form-urlencoded" \
+    -H "Accept: application/json" \
+</code></pre>
+<blockquote>
+<p>Example response (200) :</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Created Workshop",
+    "data": {
+        "company_name": "cierra GmbH",
+        "lat": "51.5265529",
+        "lng": "9.9023838",
+        "note": "This is an example note to the company cierra. Write something interesting here.",
+        "address": "Bachstraße 2, 37081 Göttingen",
+        "telefon": "055189999000",
+        "email": "support@cierra.de",
+        "updated_at": "2020-05-06T19:06:58.000000Z",
+        "created_at": "2020-05-06T19:06:58.000000Z",
+        "id": 2
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/workshops</code></p>
+<h3>Query Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3>Body Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>company_name</td>
+<td>REQUIRED - The name of the workshop</td>
+</tr>
+<tr>
+<td>lat</td>
+<td>REQUIRED - The latitude of the workshop</td>
+</tr>
+<tr>
+<td>lng</td>
+<td>REQUIRED - The longitude of the workshop</td>
+</tr>
+<tr>
+<td>note</td>
+<td>A freetext description of the workshop.</td>
+</tr>
+<tr>
+<td>address</td>
+<td>REQUIRED - The postaddress of the workshop.</td>
+</tr>
+<tr>
+<td>telefon</td>
+<td>Phone number of the workshop</td>
+</tr>
+<tr>
+<td>email</td>
+<td>The email address of the company.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_935d4f17608b589a4380b70e7380c715 -->
+<!-- START_b87225e7834b5533e524be98e27527fc -->
+<h2>Get workshop details</h2>
+<blockquote>
+<p>No example provided.</p>
+</blockquote>
+<h3>HTTP Request</h3>
+<p><code>GET api/workshops/{workshop}</code></p>
+<h3>Query Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<!-- END_b87225e7834b5533e524be98e27527fc -->
+<!-- START_6ccfac82cc098e7d4db50ff88ba24547 -->
+<h2>Update workshop</h2>
+<blockquote>
+<p>No example provided.</p>
+</blockquote>
+<h3>HTTP Request</h3>
+<p><code>PUT api/workshops/{workshop}</code>
+<code>PATCH api/workshops/{workshop}</code></p>
+<h3>Query Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<!-- END_6ccfac82cc098e7d4db50ff88ba24547 -->
+<!-- START_7a9342c92fdadc43a81470f827447aff -->
+<h2>Delete a workshop</h2>
+<blockquote>
+<p>No example provided.</p>
+</blockquote>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/workshops/{workshop}</code></p>
+<h3>Query Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<!-- END_7a9342c92fdadc43a81470f827447aff -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>
